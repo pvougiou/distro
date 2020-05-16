@@ -129,12 +129,12 @@ cd ${THIS_DIR}/extra/nngraph && $PREFIX/bin/luarocks make nngraph-scm-1.rockspec
 cd ${THIS_DIR}/pkg/image     && $PREFIX/bin/luarocks make image-1.1.alpha-0.rockspec   || exit 1
 cd ${THIS_DIR}/pkg/optim     && $PREFIX/bin/luarocks make optim-1.0.5-0.rockspec       || exit 1
 
-if [ -x "$path_to_nvcc" ]
-then
-    echo "Found CUDA on your machine. Installing CUDA packages"
-    cd ${THIS_DIR}/extra/cutorch && $PREFIX/bin/luarocks make rocks/cutorch-scm-1.rockspec || exit 1
-    cd ${THIS_DIR}/extra/cunn    && $PREFIX/bin/luarocks make rocks/cunn-scm-1.rockspec    || exit 1
-fi
+# if [ -x "$path_to_nvcc" ]
+# then
+#     echo "Found CUDA on your machine. Installing CUDA packages"
+#     cd ${THIS_DIR}/extra/cutorch && $PREFIX/bin/luarocks make rocks/cutorch-scm-1.rockspec || exit 1
+#     cd ${THIS_DIR}/extra/cunn    && $PREFIX/bin/luarocks make rocks/cunn-scm-1.rockspec    || exit 1
+# fi
 
 # Optional packages
 echo "Installing optional Torch packages"
@@ -147,11 +147,11 @@ cd ${THIS_DIR}/extra/threads        && $PREFIX/bin/luarocks make rocks/threads-s
 cd ${THIS_DIR}/extra/argcheck       && $PREFIX/bin/luarocks make rocks/argcheck-scm-1.rockspec
 
 # Optional CUDA packages
-if [ -x "$path_to_nvcc" ]
-then
-    echo "Found CUDA on your machine. Installing optional CUDA packages"
-    cd ${THIS_DIR}/extra/cudnn   && $PREFIX/bin/luarocks make cudnn-scm-1.rockspec
-fi
+# if [ -x "$path_to_nvcc" ]
+# then
+#     echo "Found CUDA on your machine. Installing optional CUDA packages"
+#     cd ${THIS_DIR}/extra/cudnn   && $PREFIX/bin/luarocks make cudnn-scm-1.rockspec
+# fi
 
 export PATH=$OLDPATH # Restore anaconda distribution if we took it out.
 
